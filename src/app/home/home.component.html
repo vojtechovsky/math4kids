@@ -1,0 +1,272 @@
+<div class="well-large">
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card" (click)="toggleClass(0)" [ngClass]="{'flipped': isFront[0] }">
+          <div class="face front">
+            <div class="well well-sm inner">
+              <h1 class="text-center">
+                <a [routerLink]="['/math/r1']">R1</a>
+              </h1>
+              <p>numbers:0-5</p>
+              <h2>+</h2>
+            </div>
+          </div>
+          <div class="face back">
+            <div class="well well-sm inner">
+              <!--<h1 class="text-center">
+                R1
+              </h1>
+              -->
+              <p>
+                From:<b>0</b> to:<b>5</b>
+              </p>
+              <p>plus</p>
+              <p>total count: 8</p>
+              <p>result: 0-10</p>
+              <p>operands count: 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card" (click)="toggleClass(1)" [ngClass]="{'flipped': isFront[1] }">
+          <div class="face front">
+            <div class="well well-sm inner">
+              <h1 class="text-center">
+                <a [routerLink]="['/math/r2']">R2</a>
+              </h1>
+              <p>numbers:0-10</p>
+              <h2>+</h2>
+            </div>
+          </div>
+          <div class="face back">
+            <div class="well well-sm inner">
+              <p>
+                From:<b>0</b> to:<b>10</b>
+              </p>
+              <p>plus</p>
+              <p>total count: 8</p>
+              <p>result: 0-10</p>
+              <p>operands count: 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card" (click)="toggleClass(2)" [ngClass]="{'flipped': isFront[2] }">
+          <div class="face front">
+            <div class="well well-sm inner">
+              <h1 class="text-center">
+                <a [routerLink]="['/math/r3']">R3</a>
+              </h1>
+              <p>numbers:0-10</p>
+              <h2>+</h2>
+            </div>
+          </div>
+          <div class="face back">
+            <div class="well well-sm inner">
+              <!--<h1 class="text-center">
+                R1
+              </h1>
+              -->
+              <p>
+                From:<b>0</b> to:<b>10</b>
+              </p>
+              <p>plus, minus</p>
+              <p>total count: 8</p>
+              <p>result: 0-10</p>
+              <p>operands count: 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card" (click)="toggleClass(3)" [ngClass]="{'flipped': isFront[3] }">
+          <div class="face front">
+            <div class="well well-sm inner">
+              <h1 class="text-center">
+                <a [routerLink]="['/math/r4']">R4</a>
+              </h1>
+              <p>numbers:0-20</p>
+              <h2>+</h2>
+            </div>
+          </div>
+          <div class="face back">
+            <div class="well well-sm inner">
+              <!--<h1 class="text-center">
+                R1
+              </h1>
+              -->
+              <p>
+                From:<b>0</b> to:<b>20</b>
+              </p>
+              <p>plus, minus</p>
+              <p>total count: 8</p>
+              <p>result: 0-20</p>
+              <p>operands count: 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card" (click)="toggleClass(4)" [ngClass]="{'flipped': isFront[4] }">
+          <div class="face front">
+            <div class="well well-sm inner">
+              <h1 class="text-center">
+                <a [routerLink]="['/math/r5']">R5</a>
+              </h1>
+              <p>numbers:0-30</p>
+              <h2>+</h2>
+            </div>
+          </div>
+          <div class="face back">
+            <div class="well well-sm inner">
+              <p>
+                From:<b>0</b> to:<b>30</b>
+              </p>
+              <p>plus, minus</p>
+              <p>total count: 8</p>
+              <p>result: 0-30</p>
+              <p>operands count: 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card" (click)="toggleClass(5)" [ngClass]="{'flipped': isFront[5] }">
+          <div class="face front">
+            <div class="well well-sm inner">
+              <h1 class="text-center">
+                <a [routerLink]="['/math/r6']">R6</a>
+              </h1>
+              <p>numbers:0-50</p>
+              <h2>+</h2>
+            </div>
+          </div>
+          <div class="face back">
+            <div class="well well-sm inner">
+              <p>
+                From:<b>0</b> to:<b>50</b>
+              </p>
+              <p>plus, minus</p>
+              <p>total count: 8</p>
+              <p>result: 0-50</p>
+              <p>operands count: 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card" (click)="toggleClass(6)" [ngClass]="{'flipped': isFront[6] }">
+          <div class="face front">
+            <div class="well well-sm inner">
+              <h1 class="text-center">
+                <a [routerLink]="['/math/r7']">R7</a>
+              </h1>
+              <p>numbers:40-80</p>
+              <h2>+</h2>
+            </div>
+          </div>
+          <div class="face back">
+            <div class="well well-sm inner">
+              <!--<h1 class="text-center">
+                R1
+              </h1>
+              -->
+              <p>
+                From:<b>40</b> to:<b>80</b>
+              </p>
+              <p>plus, minus</p>
+              <p>total count: 8</p>
+              <p>result: 40-80</p>
+              <p>operands count: 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card" (click)="toggleClass(7)" [ngClass]="{'flipped': isFront[7] }">
+          <div class="face front">
+            <div class="well well-sm inner">
+              <h1 class="text-center">
+                <a [routerLink]="['/math/r8']">R8</a>
+              </h1>
+              <p>numbers:0-100</p>
+              <h2>+</h2>
+            </div>
+          </div>
+          <div class="face back">
+            <div class="well well-sm inner">
+              <p>
+                From:<b>0</b> to:<b>100</b>
+              </p>
+              <p>plus</p>
+              <p>total count: 8</p>
+              <p>result: 0-100</p>
+              <p>operands count: 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card" (click)="toggleClass(8)" [ngClass]="{'flipped': isFront[8] }">
+          <div class="face front">
+            <div class="well well-sm inner">
+              <h1 class="text-center">
+                <a [routerLink]="['/math/r9']">R9</a>
+              </h1>
+              <p>numbers:0-100</p>
+              <h2>+</h2>
+            </div>
+          </div>
+          <div class="face back">
+            <div class="well well-sm inner">
+              <!--<h1 class="text-center">
+                R1
+              </h1>
+              -->
+              <p>
+                From:<b>0</b> to:<b>100</b>
+              </p>
+              <p>plus, minus</p>
+              <p>total count: 8</p>
+              <p>result: 0-100</p>
+              <p>operands count: 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
