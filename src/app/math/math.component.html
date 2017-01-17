@@ -1,70 +1,43 @@
 <div class="row">
-  <div class="col-sm-2 col-sm-offset-2 highlight text-center">{{exercise.task.operands[0]}}</div>
-  <div class="col-sm-1 highlight text-center">{{mathService.getOperatorSymbol(exercise.task.operatorTypes[0])}}</div>
-  <div class="col-sm-2 highlight text-center">{{exercise.task.operands[1]}}</div>
-  <div class="col-sm-1 highlight text-center">=</div>
-  <div class="col-sm-2 text-center">
-    <form class="form-group has-feedback" name="resultForm" (ngSubmit)="next()">
-      <input type="number" pattern="[0-9]*" class="highlight" required id="inputTyped"
-             [(ngModel)]="exercise.task.inputTyped" [ngModelOptions]="{ standalone: true}"/>
+  <!--content-->
+  <div class="col-xs-9">
+    <div class="row">
+      <div class="col-xs-2 highlight text-center" >{{exercise.task.operands[0]}}</div>
+      <div class="col-xs-1 highlight text-center" >{{mathService.getOperatorSymbol(exercise.task.operatorTypes[0])}}</div>
+      <div class="col-xs-2 highlight text-center" >{{exercise.task.operands[1]}}</div>
+      <div class="col-xs-1 highlight text-center" >=</div>
+      <div class="col-xs-2 highlight text-center">
+          <span>{{exercise.task.inputTyped}}</span>
+      </div>
+      <div class="col-xs-1 highlight text-center">
+        <!--inputResultType===1 => Success-->
+        <span *ngIf="exercise.task.inputResultType===1" class="glyphicon glyphicon-ok form-control-feedback"></span>
+        <!--inputResultType===3 => Failure-->
+        <span *ngIf="exercise.task.inputResultType===3" class="glyphicon glyphicon-remove form-control-feedback"></span>
+      </div>
+    </div>
 
-      <!--inputResultType===1 => Success-->
-      <span *ngIf="exercise.task.inputResultType===1" class="glyphicon glyphicon-ok form-control-feedback"></span>
-      <!--inputResultType===3 => Failure-->
-      <span *ngIf="exercise.task.inputResultType===3" class="glyphicon glyphicon-remove form-control-feedback"></span>
-    </form>
+    <!--buttons Refresh, Clear, Ok?, Next-->
+    <div class="row">
+      <div class="col-xs-9">
+        <button *ngIf="exercise.isCompleted" (click)="exercise.generateTasks()">Refresh</button>
+        <button *ngIf="!exercise.isCompleted" (click)="clear()">Clear</button>
+        <button *ngIf="!exercise.task.inputResolved" (click)="exercise.check(exercise.task)">Ok?</button>
+        <button *ngIf="!exercise.isCompleted" (click)="exercise.next()">Next</button>
+      </div>
+    </div>
+    <!--keypad-->
+    <pvo-keypad class="innerBottom" [maxLength]="2" [(numeric)]="exercise.task.inputTyped"></pvo-keypad>
   </div>
-</div>
+  <!--smiles-->
+  <div class="col-xs-3">
 
-<hr/>
-
-<!--buttons Refresh, Clear, Ok?, Next-->
-<div class="row">
-  <div class="center-block" style="width:320px">
-    <button *ngIf="exercise.isCompleted" (click)="exercise.generateTasks()">Refresh</button>
-    <button *ngIf="!exercise.isCompleted" (click)="clear()">Clear</button>
-    <button *ngIf="!exercise.task.inputResolved" (click)="exercise.check(exercise.task)">Ok?</button>
-    <button *ngIf="!exercise.isCompleted" (click)="exercise.next()">Next</button>
-  </div>
-</div>
-
-<hr/>
-<p></p>
-
-<div class="row">
-  <div class="center-block" style="width:320px">
     <span *ngFor="let task of exercise.tasks" [ngSwitch]="task.inputResultType">
-        <span *ngSwitchCase="0"><i class="fa fa-3x fa-genderless "></i></span>
-        <span *ngSwitchCase="1"><i class="fa fa-3x fa-smile-o text-success"></i></span>
-        <span *ngSwitchCase="2"><i class="fa fa-3x fa-meh-o text-warning"></i></span>
-        <span *ngSwitchCase="3"><i class="fa fa-3x fa-frown-o text-danger"></i></span>
+        <span *ngSwitchCase="0"><i class="fa fa-2x fa-genderless "></i></span>
+        <span *ngSwitchCase="1"><i class="fa fa-2x fa-smile-o text-success"></i></span>
+        <span *ngSwitchCase="2"><i class="fa fa-2x fa-meh-o text-warning"></i></span>
+        <span *ngSwitchCase="3"><i class="fa fa-2x fa-frown-o text-danger"></i></span>
     </span>
+
   </div>
 </div>
-
-
-<!--
-<template [ngSwitchWhen]="'1'"><i class="fa fa-3x fa-smile-o text-success"></i></template>
-        <template [ngSwitchWhen]="'2'"><i class="fa fa-3x fa-meh-o text-warning"></i></template>
-        <template [ngSwitchWhen]="'3'"><i class="fa fa-3x fa-frown-o text-danger"></i></template>
--->
-
-<!--
-<ul *ngFor="let task of exercise.tasks">
- <li>{{task.operands[0]}} {{mathService.getOperatorSymbol(task.operatorTypes[0])}} {{task.operands[1]}}  =  </li>
-</ul>
--->
-
-<!--
-<div class="table" ng-hide="true"  ng-repeat="task in exercise.tasks">
-  <div class="row" ng-show="task.inputResolved">
-    <div class="col-sm-2 text-center">{{task.operands[0]}}</div>
-    <div class="col-sm-1 text-center">{{controller.mathService.getOperatorSymbol(task.operatorTypes[0])}}</div>
-    <div class="col-sm-2 text-center">{{task.operands[1]}}</div>
-    <div class="col-sm-1 text-center">=</div>
-    <div class="col-sm-2 text-center">{{task.inputTyped}}</div>
-    <div class="col-sm-1 text-center">{{task.duration}} </div>
-    <div class="col-sm-3 text-center">{{task.inputResolved}}</div>
-  </div>
-</div>
--->

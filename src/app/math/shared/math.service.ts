@@ -29,7 +29,7 @@ export class MathService {
       .operandRange(0, 5)
       .operandCountRange(2, 2)
       .resultRange(0, 10)
-      .taskCount(8)
+      .taskCount(20)
       .create();
 
     this.exerciseDictionary["r2"] = ExerciseBuilder
@@ -121,7 +121,7 @@ export class MathService {
       .create();
   }
 
-  public getServiceName(): string {
+  public static getServiceName(): string {
     return "MathService";
   }
 

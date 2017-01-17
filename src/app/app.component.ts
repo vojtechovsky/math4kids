@@ -9,4 +9,6 @@ import {MathService} from "./math/shared/math.service";
 })
 export class AppComponent {
   title = 'Math 4 kids!';
+
+  isCollapsed = true;
 }
