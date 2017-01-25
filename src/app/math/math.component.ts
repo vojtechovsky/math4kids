@@ -71,29 +71,6 @@ export class MathComponent implements OnInit {
   }
 
 
-  @HostListener('window:keydown', ['$event'])
-  handleKeydown(event) {
-    let numberKey;
-    if (event.keyCode) {
-      numberKey = event.keyCode - 48;
-    } else {
-      numberKey = +event.key;
-    }
-
-    // if (numberKey > 0 && numberKey <= this.rows.length) {
-    //   if (this.selectedRow == null) {
-    //     this.selectedRow = numberKey;
-    //   } else {
-    //     this.handleCheck(this.selectedRow, numberKey);
-    //     this.selectedRow = null;
-    //   }
-    // } else {
-    //   this.selectedRow = null;
-    // }
-
-  }
-
-
   private createNew(): Exercise {
     return ExerciseBuilder
       .operatorType(OperatorType.Minus, OperatorType.Plus)

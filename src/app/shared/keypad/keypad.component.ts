@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output, HostListener} from '@angular/core';
 
 @Component({
   selector: 'pvo-keypad',
@@ -83,4 +83,39 @@ export class KeypadComponent implements OnInit {
     this.numericString = null;
     this.numeric = null;
   }
+
+  private isNumberKeyCode(event: KeyboardEvent) {
+    let keyCode = (event.which) ? event.which : event.keyCode;
+    return ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105))
+  }
+
+  /*
+   It converts KeyboardEvent to a number
+   */
+  private eventToNumber(event: KeyboardEvent): number {
+    if (!this.isNumberKeyCode(event)) {
+      return Number.NaN;
+    }
+
+    let keyCode = (event.which) ? event.which : event.keyCode;
+    return (keyCode > 57) ? keyCode - 96 : keyCode - 48;
+  }
+
+
+  /*
+   It handles the keyboard handler
+   If the key is number acts as the keypad
+   */
+  @HostListener('window:keydown', ['$event'])
+  public handleKeydown(event: KeyboardEvent) {
+
+    let newNumber = this.eventToNumber(event);
+
+    if (!this.isNumberKeyCode(event)) {
+      return;
+    }
+
+    this.addNumber(newNumber);
+  }
+
 }
