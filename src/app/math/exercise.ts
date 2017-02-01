@@ -101,6 +101,14 @@ export class Exercise {
     return res;
   }
 
+  /*
+  If user click on enter key it goes first as if a user click on the
+  OK button. The second time pressed enter key means execute next button
+   */
+  public pressedOkOrNext(task: Task): void {
+    (task.inputResolved)? this.next(task) : this.check(task);
+  }
+
   /**
    * check given _task.
    * @param task
@@ -131,16 +139,16 @@ export class Exercise {
    *
    * @returns {number} index of the active _task
    */
-  public next(): number {
+  public next(task: Task): number {
 
-    this.check(this.task);
+    this.check(task);
 
     //check the time
     this.task.endDate = new Date();
-    Exercise.setDuration(this.task);
+    Exercise.setDuration(task);
 
     this.isCompleted = this.isLastTask();
-    this.task.inputResolved = true;
+    task.inputResolved = true;
 
     if (!this.isCompleted) {
       this.setTask(this.tasks[++this.taskActiveIndex]);

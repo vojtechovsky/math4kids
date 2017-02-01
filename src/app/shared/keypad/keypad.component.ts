@@ -84,9 +84,21 @@ export class KeypadComponent implements OnInit {
     this.numeric = null;
   }
 
+  /*
+  it returns whether the given KeyboardEvent has a number keyCode
+   (whether the user clicked on the numeric key)
+   */
   private isNumberKeyCode(event: KeyboardEvent) {
     let keyCode = (event.which) ? event.which : event.keyCode;
     return ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105))
+  }
+
+  /*
+  It returns true if the event has KeyCode.KEY_RETURN = 13, otherwise false
+   */
+  isEnterKeyCode(event: KeyboardEvent) {
+    let keyCode = (event.which) ? event.which : event.keyCode;
+    return (keyCode===13);
   }
 
   /*
@@ -111,6 +123,11 @@ export class KeypadComponent implements OnInit {
 
     let newNumber = this.eventToNumber(event);
 
+    if (this.isEnterKeyCode(event)) {
+      this.onEnterKey.emit("enter pressed!");
+      return;
+    }
+
     if (!this.isNumberKeyCode(event)) {
       return;
     }
@@ -118,4 +135,12 @@ export class KeypadComponent implements OnInit {
     this.addNumber(newNumber);
   }
 
+
+  //onEnterKey
+  //custom event for example 09
+  /*
+  Custom event emitter.
+  It emits whenever the user click on enter key
+   */
+  @Output() public onEnterKey = new EventEmitter<string>();
 }

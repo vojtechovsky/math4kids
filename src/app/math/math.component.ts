@@ -45,8 +45,11 @@ export class MathComponent implements OnInit {
 
   public exercise: Exercise;
 
+  // constructor(private mathService: MathService) {
+  //   this.routeId = "r1";
+  // }
 
-  constructor(private mathService: MathService, private router: Router, private route: ActivatedRoute) {
+  constructor(private mathService: MathService, private route: ActivatedRoute) {
     this.routeId = this.route.snapshot.params['id'];
   }
 
@@ -54,14 +57,14 @@ export class MathComponent implements OnInit {
     this.exercise = this.mathService.getExerciseFromRouter(this.routeId);
   }
 
-  public next() {
-
-    if (this.exercise.task.inputResolved) {
-      this.exercise.next();
-    } else {
-      this.exercise.check(this.exercise.task);
-    }
-  }
+  // public next() {
+  //
+  //   if (this.exercise.task.inputResolved) {
+  //     this.exercise.next(this.exercise.task);
+  //   } else {
+  //     this.exercise.check(this.exercise.task);
+  //   }
+  // }
 
   /**
    * clear inputTyped field on the current task
@@ -73,11 +76,11 @@ export class MathComponent implements OnInit {
 
   private createNew(): Exercise {
     return ExerciseBuilder
-      .operatorType(OperatorType.Minus, OperatorType.Plus)
-      .operandRange(0, 10)
+      .operatorType(OperatorType.Plus)
+      .operandRange(0, 5)
       .operandCountRange(2, 2)
-      .resultRange(0, 20)
-      .taskCount(8)
+      .resultRange(0, 10)
+      .taskCount(20)
       .create();
   }
 

@@ -25,11 +25,11 @@
         <button *ngIf="exercise.isCompleted" (click)="exercise.generateTasks()"><i class="fa fa-refresh fa-spin"></i> Refresh</button>
         <!--<button *ngIf="!exercise.isCompleted" (click)="clear()">Clear</button>-->
         <button *ngIf="!exercise.task.inputResolved" (click)="exercise.check(exercise.task)">Ok ?</button>
-        <button *ngIf="!exercise.isCompleted" (click)="exercise.next()" class="btn-primary"><i class="fa fa-rocket"></i> Next</button>
+        <div *ngIf="!exercise.isCompleted" (click)="exercise.next(exercise.task)" class="btn btn-primary"><i class="fa fa-rocket"></i> Next</div>
       </div>
     </div>
     <!--keypad-->
-    <pvo-keypad class="innerBottom" [maxLength]="2" [(numeric)]="exercise.task.inputTyped"></pvo-keypad>
+    <pvo-keypad class="innerBottom" [maxLength]="2" [(numeric)]="exercise.task.inputTyped" (onEnterKey)="exercise.pressedOkOrNext(exercise.task)"></pvo-keypad>
   </div>
   <!--smiles-->
   <div class="col-xs-3">

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MathService} from "../math/shared/math.service";
+import {Exercise} from "../math/exercise";
 
 @Component({
   selector: 'pvo-about',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mathService: MathService) { }
 
   ngOnInit() {
+  }
+
+  public justToTestInjectedService() : Exercise {
+    return this.mathService.getExerciseFromRouter("r1");
   }
 
 }
